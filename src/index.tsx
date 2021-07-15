@@ -15,7 +15,7 @@ createServer({
         {
           id:1,
           title:'freelance de website',
-          type:'income',
+          type:'deposit',
           category:'Dev',
           amount:6000,
           createdAt: new Date('2021-02-12 09:00:00')
@@ -23,7 +23,7 @@ createServer({
         {
           id:2,
           title:'Aluguel',
-          type:'outcome',
+          type:'withdraw',
           category:'Casa',
           amount:3000,
           createdAt: new Date('2021-02-14 15:00:00')

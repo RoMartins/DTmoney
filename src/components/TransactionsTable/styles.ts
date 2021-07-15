@@ -26,11 +26,11 @@ table {
       color: var(--text-title);
     }
 
-    &.income {
+    &.withdraw {
       color: var(--red);
     }
 
-    &.outcome {
+    &.deposit {
       color: var(--green)
     }
 

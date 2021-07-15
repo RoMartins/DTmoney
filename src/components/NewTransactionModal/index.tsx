@@ -6,7 +6,7 @@ import {Container,TransactionTypeContainer,
 import closeImg from '../../assets/close.svg'
 import { FormEvent, useContext, useState } from 'react';
 import { api } from '../../services/api';
-import { TransactionsContext } from '../../TransactionsContext';
+import { useTransactions } from '../../hooks/useTransactions';
 interface NewTransactionModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
@@ -18,17 +18,23 @@ export function NewTransactionModal({isOpen,onRequestClose} : NewTransactionModa
   const[category, setCategory] = useState('')
   const[type, setType] = useState('deposit')
 
-  const {createTransaction} = useContext(TransactionsContext)
+  const {createTransaction} = useTransactions()
 
-  function handleCreateNewTransaction(event: FormEvent) {
+  async function handleCreateNewTransaction(event: FormEvent) {
     event.preventDefault()
 
-    createTransaction({
+    await createTransaction({
       amount,
       category,
       title,
       type
     })
+
+    setAmount(0)
+    setCategory('')
+    setTitle('')
+    setType('deposit')
+    onRequestClose()
   }
 
 return (
